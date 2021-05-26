@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Testing app and git push</h1>
-      </header>
+      <Header/>
+      <Main/>
     </div>
   );
 }
