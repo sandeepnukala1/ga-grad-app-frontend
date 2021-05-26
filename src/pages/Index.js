@@ -1,5 +1,6 @@
 import {useState} from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import Section from "../components/Section";
 
  
 
@@ -29,34 +30,31 @@ function Index(props) {
        })
    } 
 
-   
-
     const loaded = () => {
-        
-        
-        return props.jobs.map((job) => {
-        const jobrequirements = job.requirements.split(".")
+      return props.jobs.map((job, index) => 
+        (
+          <div key={index} className="card-flex">
+            <div className="card-main"><span className="view-card">View my application progress</span></div>
+            <div key={job._id} className="card">
+                <Link to ={`/job/${job._id}`}><p className="card-heading">Job Title: {job.title}</p></Link>
+                <p><span className="card-heading">Description: </span>{job.description}</p>
+                <ul><span className="card-heading">Requirements: </span>{job.requirements.split(".").map((req,index)=> (<li key={index}>{req}</li>))}</ul>
+                <p><span className="card-heading">Salary: </span>{job.salary}</p>
+                <p><span className="card-heading">Location: </span>{job.location}</p>
+            </div>
+        </div>
 
-          
-          return (
-              
-              <div key={job._id} className="job">
-               <Link to ={`/job/${job._id}`}><h1>{job.title}</h1></Link>
-               <p>{job.description}</p>
-               <ul>{jobrequirements.map((req)=> (<li>{req}</li>))}</ul>
-               <h2>{job.salary}</h2>
-               <h3>{job.location}</h3>
-           </div>
+        ))
+    }
 
-)
-})
-   }
    const loading = () => {
        return <h1> Loading jobs...</h1>
    }
+
    return (
        <section>
-           <form onSubmit={handleSubmit}>
+           <Section title="Add a new job"/>
+           <form className="form-style" onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={newForm.title}
@@ -95,7 +93,8 @@ function Index(props) {
             <input type="submit" value="Add new Job" />
 
            </form>
-           {props.jobs ? loaded(props.jobs) : loading()}
+           <Section title="Jobs I'm tracking"/>
+           {props.jobs ? <div className="flex-cols">{loaded()}</div> : loading()}
        </section>
    )
 }

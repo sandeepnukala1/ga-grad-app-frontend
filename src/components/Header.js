@@ -4,7 +4,7 @@ function Header(props) {
     return (
         <nav className="nav">
             <Link to="/">
-                <div>Job Tracker</div>
+                <div>Job Assembly</div>
             </Link>
         </nav>
 

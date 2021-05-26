@@ -1,0 +1,146 @@
+// --------------------------
+// VARIABLES
+// --------------------------
+$maincolor: rgb(0, 0, 0);
+$contrastcolor: white;
+$lightgreen: #379683;
+$darkgreen: darkgreen;
+$backgroundcolor: lightgrey;
+$lightestgreen: #D0F0C0;
+
+@mixin white-text-black-bg {
+  color: $contrastcolor;
+  background-color: $maincolor;
+}
+
+@mixin black-test-white-bg {
+  color: $maincolor;
+  background-color: $contrastcolor;
+}
+
+@mixin green-text-grey-bg {
+  color: $darkgreen;
+  background-color: $backgroundcolor
+}
+
+// --------------------------
+// Header
+// --------------------------
+
+nav {
+  @include white-text-black-bg;
+  display: flex;
+  justify-content: flex-start;
+
+  a {
+    @include white-text-black-bg;
+    div {
+      margin: 10px;
+      font-size: large;
+    }
+  }
+}
+
+// --------------------------
+// Form
+// --------------------------
+
+section,
+div {
+  form {
+    input {
+      @include green-text-grey-bg;
+      padding: 10px;
+      font-size: 1.1em;
+      margin: 10px;
+      border: 1px solid $lightgreen;
+      
+
+      &[type="submit"]:hover {
+        @include black-test-white-bg;
+      }
+    }
+  }
+}
+
+// --------------------------
+// button
+// --------------------------
+
+button#delete {
+  color: $darkgreen;
+  font-weight: bold;
+  background-color: $lightestgreen;
+  margin: auto;
+  font-size: 1.3em;
+  padding: 10px;
+  border: 1px solid #379683;
+}
+
+// --------------------------
+// images
+// --------------------------
+
+img {
+  width: 300px;
+  height: 300px;
+  border-radius: 90px;
+  object-fit: cover;
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    background-color: $lightestgreen;
+}
+
+.flex-cols {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.card-flex {
+  display: flex;
+  padding: 5px;
+  margin: 20px;
+  border: 1px solid $lightgreen;
+}
+
+.card-main {
+  display: flex;
+  justify-content: center;
+  border: 1px solid $lightgreen;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.view-card {
+  padding-top: 100px;
+}
+
+.card-heading {
+  color: $darkgreen;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.form-style {
+  margin: 10px;
+  border: 1px solid $lightgreen;
+  text-align: center;
+}
+
+.section-heading h1 {
+  background-color: #F5F5F5;
+  padding: 10px;
+}

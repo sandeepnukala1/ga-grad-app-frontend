@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Route, Switch} from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+import Section from "./Section"
 
 function Main(props){
     const [jobs, setJobs] = useState(null);
