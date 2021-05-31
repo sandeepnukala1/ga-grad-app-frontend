@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* NAV STYLING */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid navajowhite;
+  padding: 4px;
+}
+
+.app > h1 {
+  text-align: center;
+}
+
+/* FORM STYLING */
+
+input[type="text"] {
+  padding:5px;
+  margin:8px;
+  background-color: peru;
+  color:white;
+  border:none;
+}

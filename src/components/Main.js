@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Route, Switch} from "react-router-dom";
+//import Signup from "../pages/Signup"
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 
