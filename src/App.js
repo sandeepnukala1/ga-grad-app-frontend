@@ -5,6 +5,8 @@ import Main from "./components/Main";
 import {Route, Link, Switch} from "react-router-dom"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
+import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
 
 export const GlobalCtx = React.createContext(null)
 
@@ -32,15 +34,14 @@ React.useEffect(() => {
         <Header/>
         <Main>
           <Switch>
-            <Route exact path="/" render={(rp) => gState.token ? <h1>Dashboard</h1>: <h1>Home</h1>}/>
-            <Route path="/signup" render={(rp) => <Signup {...rp}/> }/>
-            <Route path="/Login" render={(rp) => <Login {...rp}/>}/>
-            {/* <Route path="/dashboard" render={(rp => <h1>Dashboard</h1>)}/> */}
+            <Route exact path="/" render={(rp) => gState.token ? <Dashboard/>: <Home/>}/>
+            <Route path="/auth/signup" render={(rp) => <Signup {...rp} />}/>
+            <Route path="/auth/login" render={(rp) => <Login {...rp}/>}/>
 
           </Switch>
 
-      </Main>
-    </div>
+        </Main>
+      </div>
     </GlobalCtx.Provider>
   );
 }

@@ -1,9 +1,25 @@
 import {useState} from "react";
-import {Link} from "react-router-dom"
+import React from "react"
+import {Link} from "react-router-dom";
+import { GlobalCtx } from "../App";
 
  
 
-function Index(props) {
+function Dashboard(props) {
+    const {gState, setGState} = React.useContext(GlobalCtx)
+    const {url, token} = gState;
+
+    const [jobs, setJobs] = useState(null);
+
+    const getJobs = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        setJobs(data)
+    }
+
+    React.useEffect(()=> {
+
+    }, [])
 
     const [newForm, setNewForm] = useState({
         title: "",
@@ -100,4 +116,5 @@ function Index(props) {
    )
 }
 
-export default Index
+export default Dashboard
+

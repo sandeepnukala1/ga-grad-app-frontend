@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {Route, Switch} from "react-router-dom";
-//import Signup from "../pages/Signup"
-import Index from "../pages/Index";
+import Index from "../pages/Dashboard";
 import Show from "../pages/Show";
+import {GlobalCtx} from "../App";
 
 function Main(props){
     const [jobs, setJobs] = useState(null);
@@ -41,7 +41,7 @@ function Main(props){
         getJobs()
       }
     
-      const deleteJobs = async id => {
+    const deleteJobs = async id => {
         // make delete request to create people
         await fetch(URL + id, {
           method: "delete",
@@ -76,3 +76,4 @@ function Main(props){
 
 }
 export default Main
+
