@@ -19,7 +19,7 @@ function Login(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         const {username, password} = form
-        fetch(`$(url)/auth/login`, {
+        fetch(`${url}/auth/login`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -44,12 +44,12 @@ function Login(props) {
                 onChange={handleChange}
                 />
                 <input 
-                type="text" 
+                type="password" 
                 name="password" 
                 value={form.password} 
                 onChange={handleChange}
                 />
-                <input type="submit" name="login"/>
+                <input type="submit" value="login"/>
             </form>
         </div>
 
