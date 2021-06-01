@@ -6,34 +6,32 @@ function Show(props) {
     const id = props.match.params.id
     const jobs = props.jobs
     const job = jobs.find(p => p._id === id)
-
-    const checkboxstatus = (property) => {
-      if (job[property]==="") {
-        job[property] = true
-      }else{
-        job[property] = false
-      }
-    }
-    checkboxstatus("applicationSubmitted")
-    checkboxstatus("resumeReady")
-    checkboxstatus("foundLinkedInConnection")
-    checkboxstatus("recruiterFollowUp")
-
     console.log(job)
-
-
-
-     // state for form
-  const [editForm, setEditForm] = useState(job)
-
+    
+    // state for form
+    const [editForm, setEditForm] = useState(job)
+    const [hasBeenToggled, setHasBeenToggled] = useState(false)
+    
   // handleChange function for form
   const handleChange = event => {
-    setEditForm({ ...editForm, [event.target.name]: event.target.value })
+    const updatedSubForm = {...editForm}
+    if (event.target.type === 'checkbox') {
+      setHasBeenToggled(true)
+      updatedSubForm[event.target.name] =
+          !updatedSubForm[event.target.name];
+    } else {
+      updatedSubForm[event.target.name] = event.target.value;
+    }
+    setEditForm(updatedSubForm);
   }
+
+  const handleToggle = ({ target }) =>
+  setEditForm(s => ({ ...s, [target.name]: !s[target.name] }));
 
   // handlesubmit for form
   const handleSubmit = event => {
     event.preventDefault()
+    console.log(editForm)
     props.updateJobs(editForm, job._id)
     // redirect people back to index
     props.history.push("/")
@@ -79,7 +77,7 @@ function Show(props) {
             </tr>
             <tr>
               <td>
-                <input type="checkbox" id="vehicle1" name="resumeReady" value={editForm.resumeReady} onChange={handleChange} checked={editForm.resumeReady}/>
+                <input type="checkbox" id="vehicle1" name="resumeReady" value={editForm.resumeReady} onChange={handleChange} checked={hasBeenToggled ? editForm.resumeReady : job.resumeReady}/>
               </td>
               <td>
                 <input type="checkbox" id="vehicle1" name= "foundLinkedInConnection" value={editForm.foundLinkedInConnection} onChange={handleChange} checked={editForm.foundLinkedInConnection}/>
