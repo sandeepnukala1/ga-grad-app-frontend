@@ -14,7 +14,7 @@ function Main(props){
     //URL to be updated when AJ provides URL
     const URL = "https://job-backend-api.herokuapp.com/job/";
 
-    const token = JSON.parse(window.localStorage.getItem("token")).token
+    const token = window.localStorage.getItem("token") ? JSON.parse(window.localStorage.getItem("token")).token : null
 
     const getJobs = async () => {
 
