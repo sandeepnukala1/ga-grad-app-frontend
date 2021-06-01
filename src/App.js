@@ -6,7 +6,7 @@ import Main from "./components/Main";
 export const GlobalCtx = React.createContext(null)
 
 function App() {
-  const [gState, setGState] = React.useState({url: "http://localhost:4000", token: null})
+  const [gState, setGState] = React.useState({url: "https://job-backend-api.herokuapp.com", token: null})
 
   React.useEffect(() => {
     const token = JSON.parse(window.localStorage.getItem("token"))
@@ -19,7 +19,7 @@ function App() {
     <GlobalCtx.Provider value={{gState, setGState}}>
     <div className="">
       <Header/>
-      
+
       <Main token={gState.token}/>
     </div>
 

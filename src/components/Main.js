@@ -12,7 +12,7 @@ function Main(props){
     const {gState, setGState} = useContext(GlobalCtx)
     
     //URL to be updated when AJ provides URL
-    const URL = "http://localhost:4000/job/";
+    const URL = "https://job-backend-api.herokuapp.com/job/";
 
     const token = JSON.parse(window.localStorage.getItem("token")).token
 
