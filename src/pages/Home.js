@@ -1,7 +1,7 @@
 import React from "react";
 
 const Home = (props) => {
-
+    console.log("home");
     return (
         <div>
             <h1>Welcome to Job Assembly</h1>

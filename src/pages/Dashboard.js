@@ -6,6 +6,7 @@ import { GlobalCtx } from "../App";
  
 
 function Dashboard(props) {
+    console.log("dashboard");
     const {gState, setGState} = React.useContext(GlobalCtx)
     const {url, token} = gState;
 

@@ -2,6 +2,7 @@ import React from "react"
 import {GlobalCtx} from "../App"
 
 function Signup(props) {
+    console.log("signup")
     const { gState, setGState } = React.useContext(GlobalCtx)
     const {url} = gState
 

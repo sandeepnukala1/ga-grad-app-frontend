@@ -5,7 +5,7 @@ import {GlobalCtx} from "../App"
 function Header(props) {
     const {gState, setGState} = React.useContext(GlobalCtx); 
     const logout =(
-    <Link>
+    <Link to="toks-temporary">
         <h2 
         onClick= {() => {
             window.localStorage.removeItem("token")
