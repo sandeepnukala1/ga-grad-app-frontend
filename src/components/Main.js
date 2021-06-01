@@ -6,6 +6,7 @@ import Section from "./Section"
 import Signup from "../pages/Signup"
 import Login from "../pages/Login"
 import {GlobalCtx} from "../App"
+import Home from "./Home"
 
 function Main(props){
     const [jobs, setJobs] = useState(null);
@@ -76,7 +77,7 @@ function Main(props){
         <main>
             <Switch>
                 <Route exact path="/" render={() => token ? 
-                <Index jobs={jobs} createJobs={createJobs} /> : <h1>Home</h1>}>
+                <Index jobs={jobs} createJobs={createJobs} /> : <Home/>}>
                     
                 </Route>
                 <Route path="/signup" render={(rp) => <Signup {...rp} />}/>
