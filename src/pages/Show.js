@@ -7,6 +7,21 @@ function Show(props) {
     const jobs = props.jobs
     const job = jobs.find(p => p._id === id)
 
+    const checkboxstatus = (property) => {
+      if (job[property]==="") {
+        job[property] = true
+      }else{
+        job[property] = false
+      }
+    }
+    checkboxstatus("applicationSubmitted")
+    checkboxstatus("resumeReady")
+    checkboxstatus("foundLinkedInConnection")
+    checkboxstatus("recruiterFollowUp")
+
+    console.log(job)
+
+
 
      // state for form
   const [editForm, setEditForm] = useState(job)
@@ -42,15 +57,44 @@ function Show(props) {
   
     return (
       <div className="job">
-        <h1>{job.title}</h1>
-        <p>{job.description}</p>
-        <ul>{jobrequirementitems}</ul>
-        <h3>{job.location}</h3>
-        <h3>{job.salary}</h3>
+        <h1>title: {job.title}</h1>
+        <p>Description: {job.description}</p>
+        <ul>Job Requirements: {jobrequirementitems}</ul>
+        <h3>Job Location: {job.location}</h3>
+        <h3>Salary: {job.salary}</h3>
+
+
         <button id="delete" onClick={removeJob}>
         DELETE
       </button>
         <form onSubmit={handleSubmit}>
+        <h2>Job Track Progress</h2>
+          <table>
+            <tr>
+              <th>Resume Ready?</th>
+              <th>LinkedIn Connection?</th>
+              <th>Recruiter Follow-Up?</th>
+              <th>Application Submitted?</th>
+              <th>Date Submitted?</th>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="vehicle1" name="resumeReady" value={editForm.resumeReady} onChange={handleChange} checked={editForm.resumeReady}/>
+              </td>
+              <td>
+                <input type="checkbox" id="vehicle1" name= "foundLinkedInConnection" value={editForm.foundLinkedInConnection} onChange={handleChange} checked={editForm.foundLinkedInConnection}/>
+              </td>
+              <td>
+                <input type="checkbox" id="vehicle1" name= "recruiterFollowUp" value={editForm.recruiterFollowUp} onChange={handleChange} checked={editForm.recruiterFollowUp}/>
+              </td>
+              <td>
+                <input type="checkbox" id="vehicle1" name= "applicationSubmitted" value={editForm.applicationSubmitted} onChange={handleChange} checked={editForm.applicationSubmitted}/>
+              </td>
+              <td>
+                <input type="date" id="vehicle1" name= "dateSubmitted" value={editForm.dateSubmitted} onChange={handleChange} />
+              </td>
+            </tr>
+          </table>
         <input
           type="text"
           value={editForm.title}
