@@ -28,7 +28,7 @@ nav {
 
 /* FORM STYLING */
 
-input[type="text"] {
+input[type="text"], input[type="password"]{
   padding:5px;
   margin:8px;
   background-color: peru;

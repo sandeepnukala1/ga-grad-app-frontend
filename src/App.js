@@ -12,8 +12,7 @@ export const GlobalCtx = React.createContext(null)
 
 
 function App() {
-  console.log("app");
-  const [gState, setGState] = React.useState({url:"https://job-backend-api.herokuapp.com/jobs/", 
+  const [gState, setGState] = React.useState({url:"https://job-backend-api.herokuapp.com", 
   token: null,
 })
 
@@ -33,15 +32,13 @@ React.useEffect(() => {
           My Job Assembly</h1>
         </Link>
         <Header/>
-        <Main>
+        <main>
           <Switch>
             <Route exact path="/" render={(rp) => gState.token ? <Dashboard/>: <Home/>}/>
             <Route path="/signup" render={(rp) => <Signup {...rp} />}/>
             <Route path="/login" render={(rp) => <Login {...rp}/>}/>
-
           </Switch>
-
-        </Main>
+        </main>
       </div>
     </GlobalCtx.Provider>
   );
