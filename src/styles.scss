@@ -146,3 +146,23 @@ input[type="submit"] {
   background-color: #F5F5F5;
   padding: 10px;
 }
+
+.signup {
+  font-weight: bold;
+  background-color: $lightestgreen;
+  display: block;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 10%;
+}
+
+.login {
+  font-weight: bold;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  background-color: $lightestgreen;
+}
