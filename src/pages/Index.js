@@ -31,7 +31,8 @@ function Index(props) {
    } 
 
     const loaded = () => {
-      return props.jobs.map((job, index) => 
+        console.log(props.jobs)
+      return props.jobs ? props.jobs.map((job, index) => 
         (
           <div key={index} className="card-flex">
             <div className="card-main"><span className="view-card">View my application progress</span></div>
@@ -44,7 +45,7 @@ function Index(props) {
             </div>
         </div>
 
-        ))
+        )) : null
     }
 
    const loading = () => {
